@@ -1,0 +1,31 @@
+<div style="text-align: center">
+  <h1>{{ title }}</h1>
+  <div>
+    <button (click)="toggleDetails()">Display details</button>
+  </div>
+  <div>
+    <p *ngIf="showDetails">{{ paragraphContent }}</p>
+    <p>'Display details' button clicked {{ buttonClicks }} times</p>
+  </div>
+  <div>
+    <input
+      id="inputBox"
+      [(ngModel)]="inputText"
+      placeholder="Enter your item here"
+    />
+    <span><button (click)="addItem()">Add</button></span><br />
+    <div>
+      <ul>
+        <li
+          *ngFor="let item of items; let i = index"
+          [style.background-color]="(i + 1) % 5 == 0 ? 'blue' : ''"
+        >
+          {{ item }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+<!--
+-->
